@@ -120,7 +120,7 @@
 .time-date > .control > .slider > .time-control,
 .time-date > .control > .slider > .switch-control {
   float: left;
-  height: 20.9rem;
+  height: 24.9rem;
 }
 .time-date > .control > .slider > .date-control,
 .time-date > .control > .slider > .time-control {
@@ -316,7 +316,7 @@
 }
 .time-date > .display,
 .time-date > .control {
-  height: 20.9rem;
+  height: 24.9rem;
   float: left;
   text-align: center;
 }

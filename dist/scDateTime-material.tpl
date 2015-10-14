@@ -13,10 +13,14 @@
     <div class="slider"> 
       <div class="date-control">
         <div class="title">
-          <md-button ng-click="calendar._incMonth(-1)" aria-label="{{:: translations.previousMonth}}" style="float: left;" ng-class="{'visuallyhidden': calendar.isVisibleMonthButton('mindate')}"><i class="fa fa-caret-left"></i></md-button><span class="month-part">{{date | date:'MMMM'}}
+          <md-button ng-click="calendar._incMonth(-1)" aria-label="{{:: translations.previousMonth}}" style="float: left;" ng-class="{'visuallyhidden': calendar.isVisibleMonthButton('mindate')}">
+            <md-icon md-svg-icon="navigation:ic_chevron_left_24px"></md-icon>
+          </md-button><span class="month-part">{{date | date:'MMMM'}}
             <select ng-model="calendar._month" ng-change="calendar.monthChange()" ng-options="calendar._allMonths.indexOf(month) as month for month in calendar._months"></select></span>
-          <input ng-model="calendar._year" ng-change="calendar.yearChange()" type="number" min="{{restrictions.mindate ? restrictions.mindate.getFullYear() : 0}}" max="{{restrcitions.maxdate ? restrictions.maxdate.getFullYear() : NaN}}" class="year-part"/>
-          <md-button ng-click="calendar._incMonth(1)" aria-label="{{:: translations.nextMonth}}" style="float: right;" ng-class="{'visuallyhidden': calendar.isVisibleMonthButton('maxdate')}"><i class="fa fa-caret-right"></i></md-button>
+          <input ng-model="calendar._year" type="number" min="{{restrictions.mindate ? restrictions.mindate.getFullYear() : 0}}" max="{{restrcitions.maxdate ? restrictions.maxdate.getFullYear() : NaN}}" class="year-part"/>
+          <md-button ng-click="calendar._incMonth(1)" aria-label="{{:: translations.nextMonth}}" style="float: right;" ng-class="{'visuallyhidden': calendar.isVisibleMonthButton('maxdate')}">
+            <md-icon md-svg-icon="navigation:ic_chevron_right_24px"></md-icon>
+          </md-button>
         </div>
         <div class="headers">
           <div ng-repeat="day in _weekdays track by $index" class="day-cell">{{day}}</div>
@@ -55,15 +59,26 @@
           <md-button ng-class="calendar.class(31)" ng-show="calendar.isVisible(31)" ng-disabled="calendar.isDisabled(31)" ng-click="calendar.select(31)" aria-label="31" class="day-cell">31</md-button>
         </div>
       </div>
-      <md-button ng-click="modeSwitch()" aria-label="{{modeSwitchText()}}" class="switch-control"><i class="fa fa-clock-o"></i><i class="fa fa-calendar"></i><span class="visuallyhidden">{{modeSwitchText()}}</span></md-button>
+      <md-button ng-click="modeSwitch()" aria-label="{{modeSwitchText()}}" class="switch-control">
+        <md-icon md-svg-icon="device:ic_access_time_24px"></md-icon>
+        <md-icon md-svg-icon="action:ic_today_24px"></md-icon><span class="visuallyhidden">{{modeSwitchText()}}</span>
+      </md-button>
       <div class="time-control">
         <div class="time-inputs">
           <input type="number" min="{{_hours24 ? 0 : 1}}" max="{{_hours24 ? 23 : 12}}" ng-model="clock._hours"/>
-          <md-button ng-click="clock._incHours(1)" aria-label="{{:: translations.incrementHours}}" class="hours up"><i class="fa fa-caret-up"></i></md-button>
-          <md-button ng-click="clock._incHours(-1)" aria-label="{{:: translations.decrementHours}}" class="hours down"><i class="fa fa-caret-down"></i></md-button>
+          <md-button ng-click="clock._incHours(1)" aria-label="{{:: translations.incrementHours}}" class="hours up">
+            <md-icon md-svg-icon="navigation:ic_arrow_drop_up_24px"></md-icon>
+          </md-button>
+          <md-button ng-click="clock._incHours(-1)" aria-label="{{:: translations.decrementHours}}" class="hours down">
+            <md-icon md-svg-icon="navigation:ic_arrow_drop_down_24px"></md-icon>
+          </md-button>
           <input type="number" min="0" max="59" ng-model="clock._minutes"/>
-          <md-button ng-click="clock._incMinutes(1)" aria-label="{{:: translations.incrementMinutes}}" class="minutes up"><i class="fa fa-caret-up"></i></md-button>
-          <md-button ng-click="clock._incMinutes(-1)" aria-label="{{:: translations.decrementMinutes}}" class="minutes down"><i class="fa fa-caret-down"></i></md-button>
+          <md-button ng-click="clock._incMinutes(1)" aria-label="{{:: translations.incrementMinutes}}" class="minutes up">
+            <md-icon md-svg-icon="navigation:ic_arrow_drop_up_24px"></md-icon>
+          </md-button>
+          <md-button ng-click="clock._incMinutes(-1)" aria-label="{{:: translations.decrementMinutes}}" class="minutes down">
+            <md-icon md-svg-icon="navigation:ic_arrow_drop_down_24px"></md-icon>
+          </md-button>
         </div>
         <div ng-if="!_hours24" class="buttons">
           <md-button ng-click="clock.setAM()" aria-label="{{:: translations.switchAmPm}}">{{date | date:'a'}}</md-button>
