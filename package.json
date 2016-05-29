@@ -1,6 +1,6 @@
 {
   "name": "sc-date-time",
-  "filename": "sc-date-time.min.js",
+  "filename": "sc-date-time.js",
   "version": "1.1.5",
   "description": "An implementation of the Material Design Date-Time picker",
   "maintainers": [
